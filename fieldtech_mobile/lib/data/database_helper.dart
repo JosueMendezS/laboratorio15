@@ -50,6 +50,20 @@ class DatabaseHelper {
     return await db.query('incidencias_locales', orderBy: 'id DESC');
   }
 
+  /// Filtro del reto: null = todas, 0 = pendientes (offline), 1 = sincronizadas.
+  Future<List<Map<String, dynamic>>> obtenerPorSincronizacion(int? isSynced) async {
+    final db = await instance.database;
+    if (isSynced == null) {
+      return await db.query('incidencias_locales', orderBy: 'id DESC');
+    }
+    return await db.query(
+      'incidencias_locales',
+      where: 'is_synced = ?',
+      whereArgs: [isSynced],
+      orderBy: 'id DESC',
+    );
+  }
+
   Future<List<Map<String, dynamic>>> obtenerPendientes() async {
     final db = await instance.database;
     return await db.query(
