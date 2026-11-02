@@ -1,0 +1,13 @@
+package ucr.ac.cr.fieldtech.fieldtech_backend;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class FieldtechBackendApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
