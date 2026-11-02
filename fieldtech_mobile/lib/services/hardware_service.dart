@@ -1,5 +1,7 @@
 // lib/services/hardware_service.dart
+
 import 'dart:io';
+
 import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -25,10 +27,8 @@ class HardwareService {
     }
 
     return await Geolocator.getCurrentPosition(
-      locationSettings: const LocationSettings(
-        accuracy: LocationAccuracy.high,
-        timeLimit: Duration(seconds: 12),
-      ),
+      desiredAccuracy: LocationAccuracy.high,
+      timeLimit: const Duration(seconds: 12),
     );
   }
 
